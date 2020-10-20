@@ -40,7 +40,6 @@ export class LandingPageComponent implements OnInit {
       .get(this.url)
       .toPromise()
       .then((data) => {
-        console.log(data);
         for (let key in data) {
           if (data.hasOwnProperty(key)) {
             this.missileData.push(data[key]);
