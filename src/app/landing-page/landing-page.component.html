@@ -1,41 +1,39 @@
 <div class="container">
   <h2>SpaceX Launch Programs</h2>
   <div class="filter-container">
-    <div>
-      <span style="font-weight: bold;font-size: 20px">Filters</span><br><br>
-      <span style="margin-left: 30%;">Launch Year</span>
-      <hr>
-      <div class="year-filter">
-        <button *ngFor="let year of years" (click)=getCurrentYear(year) [attr.id]="year">{{year}}</button>
+      <div>
+          <span style="font-weight: bold;font-size: 20px">Filters</span><br><br>
+          <span>Launch Year</span>
+          <hr>
+          <div class="year-filter">
+              <button *ngFor="let year of years" (click)=getCurrentYear(year) [attr.id]="year">{{year}}</button>
+          </div>
+          <span>Successful Launch</span>
+          <hr>
+          <div class="year-filter">
+              <button *ngFor="let value of landingOptions" (click)="isSuccessfulLaunch(value+'Launch')" [attr.id]="value+'Launch'">{{value}}</button>
+          </div>
+          <span>Successful Landing</span>
+          <hr>
+          <div class="year-filter">
+              <button *ngFor="let value of landingOptions" (click)="isSuccessfulLanding(value+'Land')" [attr.id]="value+'Land'">{{value}}</button>
+          </div>
       </div>
-      <span style="margin-left: 20%;">Successful Launch</span>
-      <hr>
-      <div class="year-filter">
-        <button *ngFor="let value of landingOptions" (click)="isSuccessfulLaunch(value+'Launch')"
-          [attr.id]="value+'Launch'">{{value}}</button>
-      </div>
-      <span style="margin-left: 20%;">Successful Landing</span>
-      <hr>
-      <div class="year-filter">
-        <button *ngFor="let value of landingOptions" (click)="isSuccessfulLanding(value+'Land')"
-          [attr.id]="value+'Land'">{{value}}</button>
-      </div>
-    </div>
   </div>
   <div class="missile-container">
-    <div class="flex-container">
-      <div *ngFor="let item of missileData" class="flex-item">
-        <span><img [src]="item.links.mission_patch_small" /></span>
-        <p class="mission_name">{{item.mission_name}} #{{item.flight_number}}</p>
-        <p class="mission_id">Mission Ids :</p>
-        <ul>
-          <li *ngFor="let id of item.mission_id">{{id}}</li>
-        </ul>
-        <p class="mission_id">Launch Year : {{item.launch_year}} </p>
-        <p class="mission_id">Successful Launch : {{item.launch_success}}</p>
-        <p class="mission_id" *ngIf="item.rocket.first_stage.cores[0].land_success != null">Successful Landing :
-          {{item.rocket.first_stage.cores[0].land_success}}</p>
+      <div class="flex-container">
+          <div *ngFor="let item of missileData" class="flex-item">
+              <div><img [src]="item.links.mission_patch_small" /></div>
+              <p class="mission_name">{{item.mission_name}} #{{item.flight_number}}</p>
+              <p class="mission_id">Mission Ids :</p>
+              <ul>
+                  <li *ngFor="let id of item.mission_id">{{id}}</li>
+              </ul>
+              <p class="mission_id">Launch Year : {{item.launch_year}} </p>
+              <p class="mission_id">Successful Launch : {{item.launch_success}}</p>
+              <p class="mission_id" *ngIf="item.rocket.first_stage.cores[0].land_success != null">Successful Landing : {{item.rocket.first_stage.cores[0].land_success}}
+              </p>
+          </div>
       </div>
-    </div>
   </div>
 </div>
