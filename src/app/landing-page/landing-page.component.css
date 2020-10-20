@@ -1,0 +1,66 @@
+.container {
+  background-color: lightgrey;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.filter-container {
+  background-color: white;
+  width: 20%;
+  float: left;
+}
+
+.missile-container {
+  background-color: white;
+  width: 80%;
+  float: left;
+}
+
+hr {
+  width: 80%;
+  margin-top: 0px;
+}
+
+.year-filter {
+  margin-left: 25px;
+  margin-right: auto;
+  color: lightgreen;
+  float: left;
+}
+
+button {
+  border: 1px solid transparent;
+  line-height: 1;
+  border-radius: 0.25rem;
+  background-color: lightgreen;
+  border-color: lightgreen;
+  padding: 5px;
+  margin: 2px 25px;
+}
+
+button:hover {
+  background-color: rgb(0, 205, 50);
+}
+
+.mission_name {
+  color: darkblue;
+  font-weight: bold;
+  font-size: large;
+}
+
+.mission_id {
+  color: black;
+  font-weight: bold;
+  font-size: large;
+}
+
+
+.flex-container {
+  display: flex;
+}
+
+.flex-item {
+  text-align: center;
+  margin: 1em;
+  flex: 1 1 auto;
+
+}
