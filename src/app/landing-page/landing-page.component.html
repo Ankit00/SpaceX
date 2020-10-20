@@ -23,7 +23,7 @@
   <div class="missile-container">
       <div class="flex-container">
           <div *ngFor="let item of missileData" class="flex-item">
-              <div><img [src]="item.links.mission_patch_small" /></div>
+              <div style="background-color: lightgrey;"><img [src]="item.links.mission_patch_small" /></div>
               <p class="mission_name">{{item.mission_name}} #{{item.flight_number}}</p>
               <p class="mission_id">Mission Ids :</p>
               <ul>
