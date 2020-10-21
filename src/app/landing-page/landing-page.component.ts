@@ -30,8 +30,9 @@ export class LandingPageComponent implements OnInit {
   previouslySelectedButton = null;
   previouslySelectedButtonDom = null;
   landingOptions = ['True', 'False'];
-  isSuccessfulLaunchDom = null;
-  isSuccessfulLandingDom = null;
+  isLaunchSelected = null;
+  isLandingSelected = null;
+  isYearSelected = null;
   sameClickFlag = null;
   constructor(private http: HttpClient) {}
 
@@ -51,9 +52,12 @@ export class LandingPageComponent implements OnInit {
 
   onButtonClick(value): any {
     this.missileData = JSON.parse(JSON.stringify(this.missileDataHolder));
+    //To remove the style of same category filter when another value is selected
     if (this.previouslySelectedButtonDom) {
       this.previouslySelectedButtonDom.removeAttribute('style');
+      
     }
+    //To remove the style of same value when selected twice
     if (this.previouslySelectedButton == value) {
       this.previouslySelectedButtonDom.removeAttribute('style');
       this.missileData = JSON.parse(JSON.stringify(this.missileDataHolder));
@@ -64,9 +68,11 @@ export class LandingPageComponent implements OnInit {
     currentButton.setAttribute('style', 'background-color: rgb(0, 205, 50);');
     this.previouslySelectedButtonDom = currentButton;
     this.previouslySelectedButton = value;
+    if(value){}
   }
 
   getCurrentYear(year): any {
+    this.isYearSelected = true;
     this.onButtonClick(year);
     if (this.sameClickFlag) {
       this.sameClickFlag = false;
@@ -76,6 +82,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   isSuccessfulLaunch(value): any {
+    this.isLaunchSelected = true;
     this.onButtonClick(value);
     if (this.sameClickFlag) {
       this.sameClickFlag = false;
@@ -93,6 +100,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   isSuccessfulLanding(value): any {
+    this.isLandingSelected = true;
     this.onButtonClick(value);
     if (this.sameClickFlag) {
       this.sameClickFlag = false;

@@ -97,3 +97,12 @@ img {
       padding: 10px;
   }
 }
+
+footer {
+  display: block;
+  color: #888888;
+  border-top: 1px solid #eeeeee;
+  margin-top: 16px;
+  padding: 16px 0;
+  text-align: center;
+}
